@@ -1,0 +1,194 @@
+/* Light Theme Variables */
+:root {
+    /* Primary Colors */
+      /* Primary Brand Colors */
+      --primary: #FF4500;            /* Red-Orange */
+      --primary-light: #FF6F3C;      /* Softer Red-Orange */
+      --primary-dark: #A83200;       /* Deep Red-Orange */
+    
+      /* Secondary / Support Colors */
+      --secondary: #6C757D;          /* Muted Gray */
+      --success: #2EC4B6;            /* Aqua Teal */
+      --danger: #E63946;             /* Bright Red */
+      --warning: #F9C74F;            /* Amber */
+      --info: #90E0EF;               /* Light Blue */
+    
+      /* Neutral Colors */
+      --light: #F8F9FA;              /* Off-White */
+      --dark: #212529;               /* Dark Gray-Black */
+      --gray: #6C757D;               /* Neutral Gray */
+      --gray-light: #E9ECEF;         /* Light Gray */
+      --gray-dark: #343A40;          /* Deep Gray */
+    
+      /* Background Colors */
+      --body-bg: #FAFAFA;            /* Softer White */
+      --card-bg: #FFFFFF;            /* Clean White */
+      --border-color: #DEE2E6;       /* Light Border */
+    
+      /* Dashboard Specific */
+      --dashboard-sidebar-bg: #070C20;           /* Deep Navy */
+      --dashboard-text-color: #FFFFFF;           /* White */
+      --dashboard-menu-bg: var(--primary);       /* Brand Red-Orange */
+      --dashboard-menu-active-bg: #FFFFFF;       /* Active Highlight */
+      --dashboard-menu-active-text: var(--primary); /* Primary Text */
+      --dashboard-main-bg: #F4F4F4;              /* Light Gray */
+      --dashboard-court-bg: #B0B0B0;             /* Softer Gray */
+    
+      /* Text Colors */
+      --text-primary: #212529;        /* Deep Black */
+      --text-secondary: #6C757D;      /* Medium Gray */
+      --text-muted: #ADB5BD;          /* Muted Light Gray */
+    
+  
+    /* Effects */
+    --box-shadow: rgba(0, 0, 0, 0.7);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Dark Theme Variables */
+  [data-theme="dark"] {
+    /* Primary Colors - Keep the same for brand consistency */
+    --primary:        #FF6347;   /* Tomato Red-Orange = consistent, maganda! */
+    --primary-light:  #FF7F66;   /* Slightly softer for hover/focus */
+    --primary-dark:   #A83200;   /* Deep Red-Orange for strong contrast */
+    
+    /* Secondary Colors - balanced gray-blue tone for dark mode */
+    --secondary:      #8C97A0;
+    --success:        #2EC4B6;   /* Aqua */
+    --danger:         #E63946;   /* Bright Red */
+    --warning:        #F9C74F;   /* Warm Yellow */
+    --info:           #90E0EF;   /* Light Blue */
+    
+    /* Neutral Colors - dark-friendly inversion */
+    --light:          #343A40;   /* Dark Gray for light elements */
+    --dark:           #FAFAFA;   /* Near-White for text contrast */
+    --gray:           #ADB5BD;   /* Muted Gray */
+    --gray-light:     #495057;   /* Mid Gray for surfaces */
+    --gray-dark:      #E9ECEF;   /* Soft Light Gray for text or dividers */
+    
+    /* Background Colors */
+    --body-bg:        #121212;   /* Dark mode base (Material / Tailwind standard) */
+    --card-bg:        #1E1E1E;   /* Slightly raised surface */
+    --border-color:   #2A2A2A;   /* Softer than pure black for clean edges */
+    
+    /* Dashboard Specific */
+    --dashboard-sidebar-bg:      #000000;  /* Pure Black = modern & OLED-friendly */
+    --dashboard-text-color:      #F8F9FA;  /* White-ish for readability */
+    --dashboard-menu-bg:         #1A1A1A;  /* Slightly lighter than sidebar */
+    --dashboard-menu-active-bg:  var(--primary);  /* Red-Orange highlight */
+    --dashboard-menu-active-text:white;
+    --dashboard-main-bg:         #121212;
+    --dashboard-court-bg:        #292929;  /* Less flat, more depth */
+    
+    /* Text Colors */
+    --text-primary:   #F8F9FA;   /* White for primary text */
+    --text-secondary: #ADB5BD;   /* Muted Gray */
+    --text-muted:     #6C757D;   /* Dimmer Gray for non-focus text */
+    
+  
+    /* Effects - Adjusted for dark mode */
+    --box-shadow: rgba(0, 0, 0, 0.9);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Apply theme to body */
+  body {
+    background-color: var(--body-bg);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Theme-specific styles for common elements */
+  .card,
+  .settings-card,
+  .court-card,
+  .chart-card,
+  .piggy-bank-card,
+  .settings-sidebar {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Theme toggle button styles */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 15px;
+  }
+  
+  .theme-toggle i {
+    font-size: 18px;
+  }
+  
+  .theme-toggle span {
+    margin-left: 10px;
+  }
+  
+  /* Dark mode specific toggle styles */
+  [data-theme="dark"] .theme-toggle .fa-sun {
+    color: var(--warning);
+  }
+  
+  /* Light mode specific toggle styles */
+  [data-theme="light"] .theme-toggle .fa-moon {
+    color: var(--primary);
+  }
+  
+  /* Theme toggle switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: auto;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--gray);
+    transition: .4s;
+    border-radius: 20px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--primary);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  

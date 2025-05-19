@@ -1,0 +1,401 @@
+/* Setup Page Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.setup-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+}
+
+.setup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.setup-header .logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.setup-header h1 {
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  color: var(--primary-light);
+}
+
+.setup-header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 150px;
+}
+
+.progress-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--border-color);
+  z-index: 1;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gray-light);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.step-number.active {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+.step-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.step-text.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Setup Steps */
+.setup-step {
+  margin-bottom: 30px;
+}
+
+.setup-step h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 10px;
+}
+
+.setup-step h2 i {
+  color: var(--primary-light);
+}
+
+/* Court Counter */
+.court-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.counter-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary-light);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.counter-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.counter-btn:disabled {
+  background-color: var(--gray-light);
+  cursor: not-allowed;
+}
+
+#numCourts {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+}
+
+/* Court Fields */
+.court-field {
+  background-color: var(--body-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.court-field h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+/* Image Upload */
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-preview {
+  width: 100%;
+  height: 150px;
+  border: 2px dashed var(--border-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background-color: var(--card-bg);
+}
+
+.image-preview i {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--primary-light);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: var(--primary);
+}
+
+/* Buttons */
+.btn-primary {
+  padding: 10px 20px;
+  background-color: var(--primary-light);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: background-color 0.3s ease;
+  margin-left: auto; 
+  margin-right: 0; 
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: var(--gray-light);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--gray);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Error Message */
+.error-message {
+  background-color: rgba(230, 57, 70, 0.1);
+  color: var(--danger);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid var(--danger);
+}
+
+/* Dark Mode Specific Styles */
+[data-theme="dark"] .image-preview {
+  background-color: var(--body-bg);
+}
+
+[data-theme="dark"] .court-field {
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .form-group input[type="text"] {
+  background-color: var(--body-bg);
+}
+
+/* Responsive Styles */
+/* Responsive Styles */
+
+/* For tablets and small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .setup-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .progress-step {
+    width: 120px;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-secondary, .btn-primary {
+    width: 100%;
+  }
+}
+
+/* For large phones and smaller tablets (max-width: 576px) */
+@media (max-width: 576px) {
+  .setup-container {
+    margin: 15px;
+    padding: 15px;
+  }
+  
+  .progress-step {
+    width: 100px;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .btn-secondary, .btn-primary {
+    width: 100%;
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+  
+  .court-counter {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #numCourts {
+    width: 50px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
+
+/* For extra small phones (max-width: 400px) */
+@media (max-width: 400px) {
+  .setup-container {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .progress-step {
+    width: 80px;
+  }
+  
+  .form-buttons {
+    flex-direction: row;
+    gap: 5px;
+  }
+  
+  .btn-secondary, .btn-primary {
+    width: 100%;
+    font-size: 12px; /* Further reduce font size for very small screens */
+    padding: 8px 15px;
+  }
+  
+  .court-counter {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  #numCourts {
+    width: 40px;
+    height: 30px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,706 @@
+/* Add this at the top to ensure no horizontal scrolling */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Add these styles at the top of the file to ensure they take precedence */
+[data-theme="dark"] .chart-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .piggy-bank-card {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .chart-header {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .chart-tab {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .chart-tab.active {
+  background-color: var(--gray-light) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stat-card-title,
+[data-theme="dark"] .stat-card-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .piggy-bank-header {
+  background-color: var(--primary) !important;
+}
+
+[data-theme="dark"] .balance-label,
+[data-theme="dark"] .goal-info {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .progress-bar {
+  background-color: var(--gray-light) !important;
+}
+
+[data-theme="dark"] .transaction {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .transaction-date {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .close {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .close:hover {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-group label {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-group input {
+  background-color: var(--body-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Styles for the change goal button */
+.goal-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.change-goal-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--primary);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.change-goal-btn:hover {
+  background-color: rgba(255, 107, 0, 0.1);
+}
+
+[data-theme="dark"] .change-goal-btn {
+  color: var(--primary);
+}
+
+[data-theme="dark"] .change-goal-btn:hover {
+  background-color: rgba(255, 107, 0, 0.2);
+}
+
+body {
+  background-color: var(--body-bg);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Update container to ensure content fits within viewport */
+.container {
+  padding: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Dashboard Layout */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 15px;
+}
+
+/* When piggy bank is disabled, use full width */
+.dashboard-layout.full-width {
+  grid-template-columns: 1fr;
+}
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Stats Cards */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Chart Card */
+.chart-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.chart-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.chart-tabs {
+  display: flex;
+}
+
+.chart-tab {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: var(--gray);
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+
+.chart-tab.active {
+  background-color: var(--gray-light);
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.chart-body {
+  padding: 15px;
+}
+
+.chart-container {
+  height: 250px;
+  position: relative;
+}
+
+/* Stat Card Styles */
+.stat-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 10px;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stat-card-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.stat-card-icon.blue {
+  background-color: var(--primary);
+}
+
+.stat-card-icon.purple {
+  background-color: #a78bfa;
+}
+
+.stat-card-icon.teal {
+  background-color: var(--success);
+}
+
+.stat-card-icon.orange {
+  background-color: var(--warning);
+}
+
+.stat-card-title {
+  font-size: 12px;
+  color: var(--gray);
+  margin: 0;
+}
+
+.stat-card-value {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 3px 0;
+}
+
+.stat-card-subtitle {
+  font-size: 11px;
+  color: var(--gray);
+  margin: 0;
+}
+
+/* Piggy Bank Card */
+.piggy-bank-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.piggy-bank-header {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 15px;
+}
+
+.piggy-bank-header h2 {
+  font-size: 14px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.piggy-bank-body {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.balance-info {
+  text-align: center;
+}
+
+.balance-label {
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 5px;
+}
+
+.balance-amount {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.goal-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.goal-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: var(--gray-light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+.piggy-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #21a89a;
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.transactions-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.transactions-list h3 {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.transaction:last-child {
+  border-bottom: none;
+}
+
+.transaction-info {
+  flex: 1;
+}
+
+.transaction-desc {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.transaction-date {
+  font-size: 10px;
+  color: var(--gray);
+}
+
+.transaction-amount {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.amount-deposit {
+  color: var(--success);
+}
+
+.amount-withdrawal {
+  color: var(--danger);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close {
+  color: var(--gray);
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--dark);
+}
+
+.form-actions {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-layout,
+  .dashboard-layout.full-width {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .dashboard-sidebar {
+    margin-top: 0;
+  }
+
+  .piggy-bank-card {
+    max-height: 500px;
+  }
+}
+
+/* Update responsive styles for mobile */
+@media (max-width: 576px) {
+  .container {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .chart-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .stat-card {
+    padding: 10px;
+  }
+
+  .stat-card-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .stat-card-value {
+    font-size: 18px;
+  }
+
+  .stat-card-title {
+    font-size: 11px;
+  }
+
+  .stat-card-subtitle {
+    font-size: 10px;
+  }
+
+  .chart-container {
+    height: 200px;
+  }
+
+  .chart-header h2 {
+    font-size: 13px;
+  }
+
+  .chart-tab {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .piggy-bank-header h2 {
+    font-size: 13px;
+  }
+
+  .balance-amount {
+    font-size: 20px;
+  }
+
+  .btn {
+    padding: 6px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+  }
+
+  .chart-body {
+    padding: 8px;
+  }
+
+  .chart-container {
+    height: 180px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 12px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chart-tabs {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .transaction-desc {
+    font-size: 11px;
+  }
+
+  .transaction-date {
+    font-size: 9px;
+  }
+
+  .transaction-amount {
+    font-size: 11px;
+  }
+
+  .modal-content {
+    margin: 5% auto;
+    padding: 15px;
+    width: 95%;
+  }
+}
+
+/* Add specific styles for very small devices */
+@media (max-width: 360px) {
+  .container {
+    padding: 8px;
+  }
+
+  .stat-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stat-card-icon {
+    margin-bottom: 5px;
+  }
+
+  .chart-body {
+    padding: 10px;
+  }
+
+  .chart-container {
+    height: 180px;
+  }
+
+  .piggy-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* Add touch-friendly improvements for mobile */
+@media (pointer: coarse) {
+  .btn,
+  .chart-tab,
+  .change-goal-btn,
+  .close {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .chart-tab {
+    padding: 8px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+}

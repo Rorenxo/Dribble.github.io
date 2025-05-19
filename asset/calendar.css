@@ -1,0 +1,716 @@
+/* Add these styles at the top of the file to ensure they take precedence */
+[data-theme="dark"] .fc {
+  color: var(--text-primary);
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .fc-theme-standard .fc-scrollgrid,
+[data-theme="dark"] .fc-theme-standard td,
+[data-theme="dark"] .fc-theme-standard th {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(172, 48, 48, 0.2);
+}
+
+[data-theme="dark"] .fc-daygrid-day-number {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .fc-col-header-cell {
+  background-color: var(--primary);
+}
+
+[data-theme="dark"] .fc-col-header-cell-cushion {
+  color: white;
+}
+
+[data-theme="dark"] .fc-button-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .fc-button-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+[data-theme="dark"] .fc-button-primary:not(:disabled).fc-button-active,
+[data-theme="dark"] .fc-button-primary:not(:disabled):active {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+[data-theme="dark"] .calendar-sidebar,
+[data-theme="dark"] .calendar-wrapper,
+[data-theme="dark"] .availability-panel,
+[data-theme="dark"] .add-booking-form {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group label {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .stat-label {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .fc-timegrid-slot-label,
+[data-theme="dark"] .fc-timegrid-axis-cushion {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .fc-event {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .fc-toolbar-title {
+  color: var(--text-primary);
+}
+
+/* Add this at the top to ensure no horizontal scrolling */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--body-bg);
+  overflow-x: hidden;
+}
+
+/* Main Content Layout */
+.main-content {
+  padding: 0;
+  height: calc(100vh - 60px);
+  overflow: visible;
+}
+
+/* Calendar Layout - Side by Side */
+.calendar-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 15px;
+  height: 100%;
+  padding: 15px;
+}
+
+/* When manual booking is hidden, use full width */
+.calendar-layout.full-width {
+  grid-template-columns: 1fr;
+}
+
+.calendar-layout.full-width .calendar-sidebar {
+  display: none;
+}
+
+/* Sidebar Styles */
+.calendar-sidebar {
+  flex-shrink: 0;
+  background-color: white;
+  padding: 15px;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Improve calendar container to fit viewport */
+.calendar-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#calendar {
+  width: 100%;
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+/* Availability Panel */
+.availability-panel {
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 15px;
+  flex: 1;
+}
+
+.availability-panel h2 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.availability-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.stat-item:nth-child(1) .stat-value {
+  color: var(--primary);
+}
+
+.stat-item:nth-child(2) .stat-value {
+  color: var(--warning);
+}
+
+.stat-item:nth-child(3) .stat-value {
+  color: var(--success);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--gray);
+}
+
+.availability-message {
+  text-align: center;
+  padding: 5px;
+  margin-top: 8px;
+}
+
+.available-message {
+  color: var(--success);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.fully-booked-message {
+  color: var(--danger);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* Add Booking Form */
+.add-booking-form {
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 15px;
+  flex: 2;
+}
+
+.add-booking-form h2 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 12px;
+  color: var(--gray-dark);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.success-message {
+  background-color: rgba(46, 196, 182, 0.1);
+  color: var(--success);
+  padding: 6px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+/* FullCalendar Customizations */
+.fc {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+}
+
+.fc .fc-toolbar {
+  margin-bottom: 0.5em;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.fc .fc-button {
+  padding: 0.2em 0.4em;
+  font-size: 0.8em;
+}
+
+.fc .fc-button-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.fc .fc-button-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(67, 97, 238, 0.1);
+}
+
+.fc .fc-col-header-cell {
+  background-color: var(--primary);
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: white;
+  text-decoration: none;
+  padding: 4px;
+  font-size: 0.8rem;
+}
+
+.fc .fc-daygrid-day-number {
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.fc .fc-event {
+  border-radius: 2px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 1px 3px;
+}
+
+.fc .fc-timegrid-slot {
+  height: 1.5em;
+}
+
+.fc .fc-timegrid-axis-cushion,
+.fc .fc-timegrid-slot-label-cushion {
+  font-size: 0.7rem;
+}
+
+.fc .fc-timegrid-event {
+  min-height: 1.5em;
+}
+
+.fc .fc-timegrid-now-indicator-line {
+  border-color: var(--danger);
+}
+
+/* Booking Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 90%;
+  max-width: 400px;
+}
+
+.close {
+  color: var(--gray);
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--dark);
+}
+
+#modalTitle {
+  margin-top: 0;
+  color: var(--primary);
+  font-size: 16px;
+}
+
+#modalDetails {
+  margin: 10px 0;
+}
+
+#modalDetails p {
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.status-confirmed {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.status-pending {
+  color: var(--warning);
+  font-weight: bold;
+}
+
+.status-cancelled {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+.modal-actions {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.btn-delete {
+  background-color: var(--danger);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .calendar-layout,
+  .calendar-layout.full-width {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .calendar-sidebar {
+    height: auto;
+  }
+
+  .calendar-wrapper {
+    height: auto;
+    min-height: 450px;
+    padding: 10px;
+  }
+
+  /* Make calendar fit within viewport */
+  .fc {
+    width: 100% !important;
+    overflow: hidden;
+  }
+
+  /* Improve calendar controls on tablets */
+  .fc .fc-toolbar {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .fc .fc-toolbar-chunk {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .fc .fc-toolbar-chunk:first-child {
+    order: 2;
+  }
+
+  .fc .fc-toolbar-chunk:nth-child(2) {
+    order: 1;
+  }
+
+  .fc .fc-toolbar-chunk:last-child {
+    order: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-wrapper {
+    height: 450px;
+  }
+
+  .availability-stats {
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    flex: 1 0 30%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .calendar-layout {
+    padding: 8px;
+  }
+
+  .calendar-wrapper {
+    padding: 8px;
+  }
+
+  /* Ensure calendar fits mobile screens */
+  .fc .fc-view-harness {
+    width: 100% !important;
+  }
+
+  .fc-scrollgrid {
+    width: 100% !important;
+    border-collapse: collapse;
+  }
+
+  .fc-scrollgrid-section-header,
+  .fc-scrollgrid-section-body {
+    width: 100% !important;
+  }
+
+  .fc-daygrid-body {
+    width: 100% !important;
+  }
+
+  .fc-daygrid-body-balanced {
+    width: 100% !important;
+  }
+
+  /* Adjust day cell sizes */
+  .fc-col-header-cell {
+    padding: 2px !important;
+  }
+
+  .fc-daygrid-day {
+    padding: 0 !important;
+  }
+
+  /* Make day cells more compact */
+  .fc .fc-daygrid-day-frame {
+    min-height: 40px;
+    padding: 2px;
+  }
+
+  /* Adjust time grid for mobile */
+  .fc .fc-timegrid-slots table {
+    width: 100% !important;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 5% auto;
+  }
+
+  /* Improve calendar for mobile */
+  .fc .fc-toolbar-title {
+    font-size: 16px;
+  }
+
+  .fc .fc-button {
+    padding: 6px 8px;
+  }
+
+  /* Hide week numbers on mobile if they exist */
+  .fc .fc-daygrid-week-number {
+    display: none;
+  }
+
+  /* Make day cells taller on mobile */
+  .fc .fc-daygrid-day-frame {
+    min-height: 60px;
+  }
+
+  /* Adjust time grid for mobile */
+  .fc .fc-timegrid-axis-cushion,
+  .fc .fc-timegrid-slot-label-cushion {
+    font-size: 10px;
+  }
+
+  .fc .fc-timegrid-slot {
+    height: 2em;
+  }
+
+  /* Form elements for mobile */
+  .form-group input,
+  .form-group select {
+    padding: 10px;
+    font-size: 16px; /* Prevent iOS zoom */
+  }
+
+  .btn-primary {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-wrapper {
+    height: 350px;
+  }
+
+  /* Simplify calendar view for very small screens */
+  .fc .fc-toolbar {
+    margin-bottom: 0.3em;
+  }
+
+  .fc .fc-daygrid-day-number {
+    font-size: 0.7rem;
+  }
+
+  .fc .fc-col-header-cell-cushion {
+    padding: 2px;
+    font-size: 0.7rem;
+  }
+
+  .fc .fc-event {
+    font-size: 0.6rem;
+  }
+
+  /* Stack form elements */
+  .form-group {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .calendar-wrapper {
+    padding: 5px;
+  }
+
+  /* Further compact calendar for tiny screens */
+  .fc .fc-toolbar-title {
+    font-size: 13px;
+  }
+
+  .fc .fc-button {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+
+  .calendar-wrapper {
+    height: 300px;
+  }
+
+  .availability-stats {
+    flex-direction: column;
+  }
+
+  .stat-item {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  /* Further simplify calendar for tiny screens */
+  .fc .fc-toolbar-title {
+    font-size: 14px;
+  }
+}
+
+/* Add touch-friendly improvements */
+@media (pointer: coarse) {
+  .fc .fc-button,
+  .btn-primary,
+  .form-group select,
+  .form-group input,
+  .close,
+  .btn-delete {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Increase the hit area for day cells */
+  .fc .fc-daygrid-day {
+    cursor: pointer;
+  }
+
+  /* Make events easier to tap */
+  .fc .fc-event {
+    padding: 4px;
+  }
+
+  /* Prevent text selection on calendar elements */
+  .fc {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Ensure form inputs are large enough */
+  input,
+  select,
+  button {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+}
+
+/* Fix for iOS Safari viewport height issues */
+@supports (-webkit-touch-callout: none) {
+  .main-content {
+    height: -webkit-fill-available;
+  }
+
+  .calendar-layout {
+    height: auto;
+    min-height: -webkit-fill-available;
+  }
+}

@@ -1,0 +1,321 @@
+/* Light Theme Variables */
+:root {
+  --primary:#68181F;
+  --primary-light: #d44c4c;
+  --primary-dark: #751f1f;
+
+  --secondary: #6c757d;
+  --success: #2ec4b6;
+  --danger: #e63946;
+  --warning: #f9c74f;
+  --info: #90e0ef;
+
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --gray-light: #e9ecef;
+  --gray-dark: #343a40;
+
+  --body-bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+
+  --dashboard-sidebar-bg: #68181F;
+  --dashboard-text-color: #e9ecef;
+  --dashboard-menu-bg: var(--primary);
+  --dashboard-menu-active-bg: #efdbbf;
+  --dashboard-menu-active-text: var(--primary);
+  --dashboard-main-bg: #f4f4f4;
+  --dashboard-court-bg: gray;
+
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #6c757d;
+
+  --box-shadow: rgba(0, 0, 0, 0.7);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.30);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --primary: #ac3030;
+  --primary-light: #d44c4c;
+  --primary-dark: #751f1f;
+
+  --secondary: #8c97a0;
+  --success: #2ec4b6;
+  --danger: #e63946;
+  --warning: #f9c74f;
+  --info: #90e0ef;
+
+  --light: #2a2a2a;
+  --dark: #efdbbf;
+  --gray: #adb5bd;
+  --gray-light: #495057;
+  --gray-dark: #e9ecef;
+
+  --body-bg: #1a1a1a;
+  --card-bg: #252525;
+  --border-color: #3a3a3a;
+
+  --dashboard-sidebar-bg: #000000;
+  --dashboard-text-color: #efdbbf;
+  --dashboard-menu-bg: #292929;
+  --dashboard-menu-active-bg: var(--primary);
+  --dashboard-menu-active-text: #efdbbf;
+  --dashboard-main-bg: #121212;
+  --dashboard-court-bg: #333333;
+
+  --text-primary: #efdbbf;
+  --text-secondary: #b9b3aa;
+  --text-muted: #8f8f8f;
+
+  --box-shadow: rgba(0, 0, 0, 0.9);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.50);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Apply theme to body */
+body {
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme-specific styles for common elements */
+.card,
+.settings-card,
+.court-card,
+.chart-card,
+.piggy-bank-card,
+.settings-sidebar,
+.main-content,
+.navbar-container,
+.sidebar-nav {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: transparent;
+  border: none;
+  color: var(--dashboard-text-color);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .navbar-container {
+  background-color: var(--dashboard-sidebar-bg);
+}
+
+[data-theme="dark"] .sidebar-nav {
+  background-color: var(--dashboard-sidebar-bg);
+}
+
+[data-theme="dark"] .main-content {
+  background-color: var(--body-bg);
+}
+
+[data-theme="dark"] .court-card {
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .court-details h3,
+[data-theme="dark"] .dashboard-title,
+[data-theme="dark"] .dashboard-subtitle {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .court-details p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .btn-view,
+[data-theme="dark"] .btn-edit,
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-action {
+  background-color: var(--primary);
+  color: white;
+}
+
+[data-theme="dark"] .btn-edit {
+  background-color: var(--gray-light);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .empty-courts {
+  background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .empty-courts i,
+[data-theme="dark"] .empty-courts p {
+  color: var(--text-secondary);
+}
+
+/* Calendar specific dark mode styles */
+[data-theme="dark"] .fc {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .fc-theme-standard .fc-scrollgrid,
+[data-theme="dark"] .fc-theme-standard td,
+[data-theme="dark"] .fc-theme-standard th {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(67, 97, 238, 0.2);
+}
+
+[data-theme="dark"] .fc-daygrid-day-number {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .fc-col-header-cell {
+  background-color: var(--primary);
+}
+
+[data-theme="dark"] .fc-col-header-cell-cushion {
+  color: white;
+}
+
+[data-theme="dark"] .fc-button-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .fc-button-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+[data-theme="dark"] .fc-button-primary:not(:disabled).fc-button-active,
+[data-theme="dark"] .fc-button-primary:not(:disabled):active {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+[data-theme="dark"] .calendar-sidebar,
+[data-theme="dark"] .calendar-wrapper,
+[data-theme="dark"] .availability-panel,
+[data-theme="dark"] .add-booking-form {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select {
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group label {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .stat-label {
+  color: var(--text-secondary);
+}
+
+/* Stats page dark mode styles */
+[data-theme="dark"] .chart-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .piggy-bank-card {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .chart-header {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .chart-tab {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .chart-tab.active {
+  background-color: var(--gray-light);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .stat-card-title,
+[data-theme="dark"] .stat-card-subtitle {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .piggy-bank-header {
+  background-color: var(--primary);
+}
+
+[data-theme="dark"] .balance-label,
+[data-theme="dark"] .goal-info {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .progress-bar {
+  background-color: var(--gray-light);
+}
+
+[data-theme="dark"] .transaction {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .transaction-date {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .close {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .close:hover {
+  color: var(--text-primary);
+}
+
+/* Navbar specific styles */
+.navbar-container {
+  background-color: var(--dashboard-sidebar-bg);
+  color: var(--dashboard-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav {
+  background-color: var(--dashboard-sidebar-bg);
+  transition: background-color 0.3s ease;
+}
+
+.nav-link {
+  color: var(--dashboard-text-color);
+}
+
+.nav-link.active {
+  background-color: var(--dashboard-menu-active-bg);
+  color: var(--dashboard-menu-active-text);
+}
+
+.navbar-toggle {
+  color: var(--dashboard-text-color);
+}
